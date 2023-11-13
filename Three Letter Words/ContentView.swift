@@ -18,6 +18,17 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
             Text("Tap on the gray box to change the letter")
+            
+            CustomLetterBox(color: .gray, text: letter)
+            
+                .onTapGesture {
+                    let position = alphabet.index(alphabet.startIndex, offsetBy: counter)
+                    letter = String(alphabet[position])
+                    counter += 1
+                    if counter == alphabet.count {
+                        counter = 0
+                    }
+                }
         }
     }
 }
